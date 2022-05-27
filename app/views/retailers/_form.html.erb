@@ -16,9 +16,9 @@
     <%= form.text_field :name %>
   </div>
 
-  <div class="field" data-controller="address">
+  <div class="field" data-controller="address" data-action="map-loaded@window->address#initGoogle">
     <%= form.label :address %>
-    <%= form.text_field :address %>
+    <%= form.search_field :address, "data-address-target" => "input" %>
   </div>
 
   <div class="field">
