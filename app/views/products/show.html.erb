@@ -20,5 +20,28 @@
   <%= @product.retail_price %>
 </p>
 
+<h2>Retailer Locations</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Maps url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @product.retailers.each do |retailer| %>
+      <tr>
+        <td><%= retailer.name %></td>
+        <td><%= retailer.address %></td>
+        <td><%= retailer.maps_url %></td>
+        <td><%= link_to 'Show', retailer %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
