@@ -2,7 +2,8 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = [
-    'input'
+    'input',
+    'url'
   ]
 
   connect() {
@@ -24,5 +25,6 @@ export default class extends Controller {
     // use values from autocomplete
     const place = this.autocomplete.getPlace();
     console.log(place.url)
+    this.urlTarget.value = place.url;
   }
 }

@@ -19,11 +19,7 @@
   <div class="field" data-controller="address" data-action="map-loaded@window->address#initGoogle">
     <%= form.label :address %>
     <%= form.search_field :address, "data-address-target" => "input" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :maps_url %>
-    <%= form.text_field :maps_url %>
+    <%= form.hidden_field :maps_url, name: "retailer[maps_url]", "data-address-target" => "url" %>
   </div>
 
   <div class="actions">
