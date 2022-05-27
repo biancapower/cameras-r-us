@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = [
     'input'
   ]
-  
+
   connect() {
     console.log("Address controller is connected")
   }
@@ -13,6 +13,16 @@ export default class extends Controller {
     // setup autocomplete
     console.log("Google maps initialised and the controller knows about it")
     console.log(google);
-    new google.maps.places.Autocomplete(this.inputTarget)
+    this.autocomplete = new google.maps.places.Autocomplete(this.inputTarget, {
+      fields: ["url"],
+      types: ["address"]
+    })
+    this.autocomplete.addListener('place_changed', this.placeSelected.bind(this))
+  }
+
+  placeSelected() {
+    // use values from autocomplete
+    const place = this.autocomplete.getPlace();
+    console.log(place.url)
   }
 }
