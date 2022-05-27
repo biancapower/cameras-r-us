@@ -31,6 +31,25 @@
     <%= form.text_field :retail_price %>
   </div>
 
+  <div class="field">
+    <%= form.label "Retailers who stock this product:" %><br />
+
+    <% if Retailer.all.empty? %>
+      <p>There are currently no retailers in the database</p>
+    <% end %>
+    
+    <%= form.collection_check_boxes :retailer_ids, Retailer.all, :id, :name do |retailer| %>
+      <div class="collection-check-box">
+        <%= retailer.check_box %>
+        <%= retailer.label %>
+      </div>
+    <% end %>
+    
+    <br>
+    
+    <%= link_to "Add a new retailer", new_retailer_path, target: "_blank" %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
