@@ -37,6 +37,7 @@
         <td><%= retailer.name %></td>
         <td><%= retailer.address %></td>
         <td><%= retailer.maps_url %></td>
+        <td><%= image_tag retailer.qr_code if retailer.qr_code.attached? %></td>
         <td><%= link_to 'Show', retailer %></td>
       </tr>
     <% end %>
