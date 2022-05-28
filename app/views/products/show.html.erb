@@ -1,13 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Brand name:</strong>
-  <%= @product.brand_name %>
-</p>
+<h1><%= @product.product_name %></h1>
 
 <p>
-  <strong>Product name:</strong>
-  <%= @product.product_name %>
+  <strong>Brand:</strong>
+  <%= @product.brand_name %>
 </p>
 
 <p>
@@ -20,13 +17,12 @@
   <%= @product.retail_price %>
 </p>
 
-<h2>Retailer Locations</h2>
+<h3>Retailer Locations</h3>
 <table>
   <thead>
     <tr>
       <th>Name</th>
       <th>Address</th>
-      <th>Maps url</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -34,9 +30,8 @@
   <tbody>
     <% @product.retailers.each do |retailer| %>
       <tr>
-        <td><%= retailer.name %></td>
-        <td><%= retailer.address %></td>
-        <td><%= retailer.maps_url %></td>
+        <td><%= link_to retailer.name, retailer %></td>
+        <td><%= link_to retailer.address, retailer.maps_url, target: "_blank" %></td>
         <td><%= image_tag retailer.qr_code if retailer.qr_code.attached? %></td>
         <td><%= link_to 'Show', retailer %></td>
       </tr>

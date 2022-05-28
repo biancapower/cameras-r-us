@@ -1,10 +1,12 @@
-<span>
-	<%= link_to_unless_current 'Home', root_path %>
-	<%= link_to_unless_current 'Products', products_path %>
-	<%= link_to_unless_current 'Retailers', retailers_path %>
-</span>
+<nav id="navbar">
+	<span class="four columns">
+		<%= link_to_unless_current 'Home', root_path %>
+		<%= link_to_unless_current 'Products', products_path %>
+		<%= link_to_unless_current 'Retailers', retailers_path %>
+	</span>
 
-<span style="float: right">
-	<%= link_to_unless_current 'Add a new product', new_product_path %>
-	<%= link_to_unless_current 'Add a new retailer', new_retailer_path %>
-</span>
+	<span class="eight columns">
+		<%= link_to_unless_current 'Add a new product', new_product_path %>
+		<%= link_to_unless_current 'Add a new retailer', new_retailer_path %>
+	</span>
+</nav>

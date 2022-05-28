@@ -32,7 +32,7 @@
   </div>
 
   <div class="field">
-    <%= form.label "Retailers who stock this product:" %><br />
+    <h4>Retailers who stock this product:</h4>
 
     <% if Retailer.all.empty? %>
       <p>There are currently no retailers in the database</p>
@@ -41,7 +41,7 @@
     <%= form.collection_check_boxes :retailer_ids, Retailer.all, :id, :name do |retailer| %>
       <div class="collection-check-box">
         <%= retailer.check_box %>
-        <%= retailer.label %>
+        <%= retailer.label class: "checkbox-label" %>
       </div>
     <% end %>
     

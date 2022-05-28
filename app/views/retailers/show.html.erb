@@ -1,20 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @retailer.name %>
-</p>
+<h1><%= @retailer.name %></h1>
 
 <p>
-  <strong>Address:</strong>
-  <%= @retailer.address %>
+  <%= link_to @retailer.address, @retailer.maps_url, target: "_blank" %>
 </p>
 
-<p>
-  <strong>Maps url:</strong>
-  <%= @retailer.maps_url %>
-</p>
-
+<h4>Scan QR code for Google Maps link</h4>
 <p>
   <%= image_tag @retailer.qr_code if @retailer.qr_code.attached? %>
 </p>
