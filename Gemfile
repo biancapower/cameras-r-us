@@ -50,3 +50,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "rspec-rails", "~> 5.1"
 
 gem "stimulus-rails", "~> 1.0"
+
+gem "rqrcode", "~> 2.1"
