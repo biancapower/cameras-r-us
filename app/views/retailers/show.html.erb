@@ -15,5 +15,9 @@
   <%= @retailer.maps_url %>
 </p>
 
+<p>
+  <%= @qrcode.as_svg(module_size: 4).html_safe %>
+</p>
+
 <%= link_to 'Edit', edit_retailer_path(@retailer) %> |
 <%= link_to 'Back', retailers_path %>
