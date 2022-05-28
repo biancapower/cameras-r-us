@@ -2,8 +2,7 @@ class Retailer < ApplicationRecord
 	has_and_belongs_to_many :products
 	has_one_attached :qr_code
   
-	after_create :generate_qr
-	after_create :generate_qr
+	after_save :generate_qr, if: :saved_change_to_maps_url?
 
   def generate_qr
 		url = self.maps_url
