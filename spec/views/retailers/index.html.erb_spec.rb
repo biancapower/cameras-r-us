@@ -20,6 +20,5 @@ RSpec.describe "retailers/index", type: :view do
     render
     assert_select "tr>td", text: "Name".to_s, count: 2
     assert_select "tr>td", text: "Address".to_s, count: 2
-    assert_select "tr>td", text: "Maps Url".to_s, count: 2
   end
 end
