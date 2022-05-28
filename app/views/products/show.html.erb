@@ -14,7 +14,7 @@
 
 <p>
   <strong>Retail price:</strong>
-  <%= @product.retail_price %>
+  <%= number_to_currency(@product.retail_price) %>
 </p>
 
 <h3>Retailer Locations</h3>
