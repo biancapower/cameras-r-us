@@ -52,3 +52,5 @@ gem "rspec-rails", "~> 5.1"
 gem "stimulus-rails", "~> 1.0"
 
 gem "rqrcode", "~> 2.1"
+
+gem "aws-sdk-s3", "~> 1.114"
