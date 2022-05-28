@@ -8,7 +8,6 @@ class RetailersController < ApplicationController
 
   # GET /retailers/1 or /retailers/1.json
   def show
-    @qrcode = RQRCode::QRCode.new(@retailer.maps_url)
   end
 
   # GET /retailers/new
