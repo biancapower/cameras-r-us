@@ -8,6 +8,13 @@ export default class extends Controller {
 
   connect() {
     console.log("Address controller is connected")
+
+    // google maps data is loaded asyncronously
+    //    sometimes after controller is created (due to turbolinks)
+    // ensures initGoogle runs regardless
+    if (window.google && window.google.maps) {
+      this.initGoogle();
+    }
   }
 
   initGoogle() {
