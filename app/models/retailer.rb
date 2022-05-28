@@ -1,6 +1,7 @@
 class Retailer < ApplicationRecord
 	has_and_belongs_to_many :products
 	has_one_attached :qr_code
+	validates :name, :address, presence: true
   
 	after_save :generate_qr, if: :saved_change_to_maps_url?
 
