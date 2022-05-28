@@ -23,6 +23,6 @@ RSpec.describe "products/index", type: :view do
     assert_select "tr>td", text: "Brand Name".to_s, count: 2
     assert_select "tr>td", text: "Product Name".to_s, count: 2
     assert_select "tr>td", text: "Product Code".to_s, count: 2
-    assert_select "tr>td", text: 2.5.to_s, count: 2
+    assert_select "tr>td", text: "$2.50", count: 2
   end
 end
