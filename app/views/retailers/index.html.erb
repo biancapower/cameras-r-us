@@ -16,6 +16,7 @@
       <tr>
         <td><%= link_to retailer.name, retailer %></td>
         <td><%= link_to retailer.address, retailer.maps_url, target: "_blank" %></td>
+        <td><%= link_to 'Show', retailer %></td>
         <td><%= link_to 'Edit', edit_retailer_path(retailer) %></td>
         <td><%= link_to 'Destroy', retailer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -18,26 +18,30 @@
 </p>
 
 <h3>Retailer Locations</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @product.retailers.each do |retailer| %>
+<% if @product.retailers.empty? %>
+  <p><strong><em>Product not currently available at any locations</em></strong></p>
+<% else %>
+  <table>
+    <thead>
       <tr>
-        <td><%= link_to retailer.name, retailer %></td>
-        <td><%= link_to retailer.address, retailer.maps_url, target: "_blank" %></td>
-        <td><%= image_tag retailer.qr_code if retailer.qr_code.attached? %></td>
-        <td><%= link_to 'Show', retailer %></td>
+        <th>Name</th>
+        <th>Address</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @product.retailers.each do |retailer| %>
+        <tr>
+          <td><%= link_to retailer.name, retailer %></td>
+          <td><%= link_to retailer.address, retailer.maps_url, target: "_blank" %></td>
+          <td><%= image_tag retailer.qr_code if retailer.qr_code.attached? %></td>
+          <td><%= link_to 'Show', retailer %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

@@ -5,8 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Brand name</th>
-      <th>Product name</th>
+      <th>Product</th>
+      <th>Brand</th>
       <th>Product code</th>
       <th>Retail price</th>
       <th colspan="3"></th>
@@ -16,8 +16,8 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
+        <td><%= link_to product.product_name, product %></td>
         <td><%= product.brand_name %></td>
-        <td><%= product.product_name %></td>
         <td><%= product.product_code %></td>
         <td><%= product.retail_price %></td>
         <td><%= link_to 'Show', product %></td>
