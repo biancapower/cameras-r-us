@@ -1,7 +1,8 @@
 class Retailer < ApplicationRecord
 	has_and_belongs_to_many :products
 	has_one_attached :qr_code
-	validates :name, :address, presence: true
+	validates :name, presence: { message: "Please enter a name" }
+	validates :maps_url, presence: { message: "Please select a valid address from the dropdown" }
   
 	after_save :generate_qr, if: :saved_change_to_maps_url?
 

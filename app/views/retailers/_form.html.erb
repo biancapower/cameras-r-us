@@ -3,11 +3,9 @@
     <div id="error_explanation">
       <h2><%= pluralize(retailer.errors.count, "error") %> prohibited this retailer from being saved:</h2>
 
-      <ul>
-        <% retailer.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+      <% retailer.errors.values.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
     </div>
   <% end %>
 
