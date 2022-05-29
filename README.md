@@ -2,6 +2,15 @@
 
 This app has been deployed on Heroku at [https://cameras-r-us.herokuapp.com/](https://cameras-r-us.herokuapp.com/).
 
+## Table of Contents
+
+* [Prototype Requirements](#PrototypeRequirements)
+* [User Flow & Features](#UserFlowFeatures)
+* [Tech Stack](#TechStack)
+* [Entity Relationship Diagram](#EntityRelationshipDiagram)
+* [Future Improvements / Features](#FutureImprovementsFeatures)
+* [Running this app locally](#Runningthisapplocally)
+
 ## Prototype Requirements
 
 Create a Rails application that displays product information for product offerings. Specifications:
@@ -65,7 +74,22 @@ The two models in this application are `retailers` and `products`. The ERD below
 
 ## Running this app locally
 
+The following are requirements in order to run this app locally:
 - Ruby version 2.7.5
 - Rails version 6.1.6
 - PostgreSQL
-- Google API Key
+- Google API Key, with access to the `Google Maps` and `Google Places` APIs
+	- the API key should be added to the `credentials.yml` by running the command `rails credentials:edit`, and adding the credentials in the following format:
+
+		```yml
+		google:
+			maps: <your key here>
+		```
+
+Once the above have been installed / set up:
+1. clone this repo to your machine
+2. `cd` into the application folder
+3. `bundle install`
+4. `rails db:create`
+5. `rails db:migrate`
+6. `rails s` to start the rails server
