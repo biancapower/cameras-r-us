@@ -7,20 +7,19 @@ export default class extends Controller {
   ]
 
   connect() {
-    console.log("Address controller is connected")
-
     // google maps data is loaded asyncronously
     //    sometimes after controller is created (due to turbolinks)
-    // ensures initGoogle runs regardless
+    //    this code ensures initGoogle runs regardless
+
+    // "window.google.maps" is what we need to exist, but an error is thrown if it is absent
+    //    checking for "window.google" first prevents this error
     if (window.google && window.google.maps) {
       this.initGoogle();
     }
   }
 
   initGoogle() {
-    // setup autocomplete
-    console.log("Google maps initialised and the controller knows about it")
-    console.log(google);
+    // set up autocomplete
     this.autocomplete = new google.maps.places.Autocomplete(this.inputTarget, {
       fields: ["url"],
       types: ["address"]
@@ -31,13 +30,13 @@ export default class extends Controller {
   placeSelected() {
     // use values from autocomplete
     const place = this.autocomplete.getPlace();
-    console.log(place.url)
     this.urlTarget.value = place.url;
   }
 
   addressChanged() {
-    console.log("address field changed")
-    // if address has changed, delete maps_url
+    // if address has changed, replace maps_url with empty string
+    // this prevents update of retailer record with an invalid address
+    // works in conjunction with retailer model validation of maps_url presence
     this.urlTarget.value = '';
   }
 }

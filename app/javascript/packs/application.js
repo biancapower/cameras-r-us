@@ -17,5 +17,4 @@ window.initMap = () => {
 	const event = new Event("MapLoaded")
 	event.initEvent("map-loaded", true, true);
 	window.dispatchEvent(event);
-	console.log("initMap initialised")
 } 
