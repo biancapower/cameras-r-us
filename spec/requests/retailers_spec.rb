@@ -17,13 +17,20 @@ RSpec.describe "/retailers", type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Retailer. As you add validations to Retailer, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  let(:valid_attributes) do 
+    {
+      name: 'Camera Warehouse',
+      address: '123 Main Street, Blacktown NSW, Australia',
+      maps_url: 'https://maps.google.com/?q=123+Main+St,+Blacktown+NSW+2148,+Australia&ftid=0x6b1298ff66842e21:0x39a2ad8d32c28484'
+    }
+  end
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:invalid_attributes) do
+    {
+      name: nil,
+      maps_url: nil
+    }
+  end
 
   describe "GET /index" do
     it "renders a successful response" do
@@ -79,7 +86,7 @@ RSpec.describe "/retailers", type: :request do
 
       it "renders a successful response (i.e. to display the 'new' template)" do
         post retailers_url, params: { retailer: invalid_attributes }
-        expect(response).to be_successful
+        expect(response).to have_http_status(422)
       end
     end
   end
@@ -109,7 +116,7 @@ RSpec.describe "/retailers", type: :request do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         retailer = Retailer.create! valid_attributes
         patch retailer_url(retailer), params: { retailer: invalid_attributes }
-        expect(response).to be_successful
+        expect(response).to have_http_status(422)
       end
     end
   end
