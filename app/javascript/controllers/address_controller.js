@@ -34,4 +34,10 @@ export default class extends Controller {
     console.log(place.url)
     this.urlTarget.value = place.url;
   }
+
+  addressChanged() {
+    console.log("address field changed")
+    // if address has changed, delete maps_url
+    this.urlTarget.value = '';
+  }
 }
