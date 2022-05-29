@@ -17,13 +17,22 @@ RSpec.describe "/products", type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Product. As you add validations to Product, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  let(:valid_attributes) do 
+    {
+      brand_name: 'Konika',
+      product_name: 'Smashcam 5000',
+      product_code: '4231',
+      retail_price: 34.55
+    }
+  end
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:invalid_attributes) do
+    {
+      brand_name: nil,
+      product_name: nil,
+      retail_price: "some text"
+    }
+  end
 
   describe "GET /index" do
     it "renders a successful response" do
@@ -79,7 +88,7 @@ RSpec.describe "/products", type: :request do
 
       it "renders a successful response (i.e. to display the 'new' template)" do
         post products_url, params: { product: invalid_attributes }
-        expect(response).to be_successful
+        expect(response).to have_http_status(422)
       end
     end
   end
@@ -109,7 +118,7 @@ RSpec.describe "/products", type: :request do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         product = Product.create! valid_attributes
         patch product_url(product), params: { product: invalid_attributes }
-        expect(response).to be_successful
+        expect(response).to have_http_status(422)
       end
     end
   end
