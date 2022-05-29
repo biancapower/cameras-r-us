@@ -24,13 +24,10 @@ class Retailer < ApplicationRecord
 			size: 240
 		)
 
-		image_name = "retailer-#{self.id}-qr"
-		IO.binwrite("tmp/#{image_name}.png", png.to_s)
-
 		blob = ActiveStorage::Blob.create_after_upload!(
-      io: File.open("tmp/#{image_name}.png"),
-      filename: image_name,
-      content_type: 'png'
+      io: StringIO.new(png.to_s),
+      filename: "retailer-#{self.id}-qr",
+      content_type: 'image/png'
     )
 
 		self.qr_code.attach(blob)
