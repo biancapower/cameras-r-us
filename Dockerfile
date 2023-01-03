@@ -73,6 +73,13 @@ RUN bundle install && rm -rf vendor/bundle/ruby/*/cache
 
 FROM base
 
+# install node version 16.16.0 & npm, then install yarn
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
+    apt-get install -y nodejs && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives && \
+    npm install -g npm@latest && \
+    npm install -g yarn
+
 ARG DEPLOY_PACKAGES="postgresql-client file vim curl gzip libsqlite3-0"
 ENV DEPLOY_PACKAGES=${DEPLOY_PACKAGES}
 
