@@ -108,7 +108,8 @@ ENV SECRET_KEY_BASE 1
 
 # Run build task defined in lib/tasks/fly.rake
 ARG BUILD_COMMAND="bin/rails fly:build"
-RUN ${BUILD_COMMAND}
+RUN --mount=type=secret,id=RAILS_MASTER_KEY \
+    RAILS_MASTER_KEY="$(cat /run/secrets/RAILS_MASTER_KEY)" ${BUILD_COMMAND}
 
 # Default server start instructions.  Generally Overridden by fly.toml.
 ENV PORT 8080
