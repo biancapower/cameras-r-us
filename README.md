@@ -1,6 +1,6 @@
 # Cameras R Us
 
-This app has been deployed on Heroku at [https://cameras-r-us.herokuapp.com/](https://cameras-r-us.herokuapp.com/).
+This app has been deployed on Fly.io at [https://cameras-r-us.fly.dev](https://cameras-r-us.fly.dev/).
 
 ## Table of Contents
 
